@@ -28,7 +28,7 @@ interface ParentContainer {
         elements: List<Element>,
         container: Element
     ) = apply {
-        appendLine("${container.type} ${container.name} {")
+        appendLine("${container.type} \"${container.name}\" {")
         generateElementsStr(container, elements, this)
         appendLine("}")
     }
@@ -37,7 +37,7 @@ interface ParentContainer {
         val mutableElement = elements.toMutableList()
         do {
             val element = mutableElement.removeFirst()
-            elementsStr.append("${element.type} ${element.name} ${element.color ?: container.color ?: ""}")
+            elementsStr.append("${element.type} \"${element.name}\" ${element.color ?: container.color ?: ""}")
             if (element.childElements.isNotEmpty()) {
                 elementsStr.appendLine("{")
                 generateElementsStr(element, element.childElements, elementsStr)
@@ -58,9 +58,7 @@ open class ChildElement(element: Element, container: ParentContainer) {
     }
 }
 
-object Color {
-
-}
+object Color
 
 interface Diagram {
     fun buildPlantUmlString(): String

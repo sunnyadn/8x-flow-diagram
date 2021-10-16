@@ -35,14 +35,14 @@ class contract(name: String, context: context, private vararg val roles: Role) :
             appendLine(super.toString())
             roles.forEach { role ->
                 appendLine(role.toString())
-                appendLine("""$name $ONE_TO_ONE ${role.element.name}""")
+                appendLine(""""$name" $ONE_TO_ONE "${role.element.name}"""")
                 role.participant?.let {
-                    appendLine("""${it.element.name} $PLAY_TO ${role.element.name}""")
+                    appendLine(""""${it.element.name}" $PLAY_TO "${role.element.name}"""")
                 }
             }
 
             fulfillments.forEach {
-                appendLine("""$name ${getAssociateLink(it.second)} ${it.first.request.name}""")
+                appendLine(""""$name" ${getAssociateLink(it.second)} "${it.first.request.name}"""")
                 appendLine(it.first.request.toString())
                 appendLine(it.first.toString())
                 appendLine(it.first.confirmation.toString())

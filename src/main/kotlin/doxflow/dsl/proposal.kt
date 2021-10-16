@@ -23,7 +23,7 @@ class proposal(name: String, context: context, generics: String?, note: String? 
     override fun toString(): String {
         return buildString {
             appendLine(super.toString())
-            appendLine("$name $ONE_TO_ONE ${contract.name}")
+            appendLine(""""$name" $ONE_TO_ONE "${contract.name}"""")
         }
     }
 }

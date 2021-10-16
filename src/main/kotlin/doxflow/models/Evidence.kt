@@ -26,7 +26,7 @@ abstract class Evidence<T>(
     override fun toString(): String {
         return """
             ${note ?: ""}
-            class $name${generics ?: ""}<<$type>> ${if (isRole) "#Orange" else "#HotPink"}{
+            class "$name"${generics ?: ""}<<$type>> ${if (isRole) "#Orange" else "#HotPink"}{
                 ${if (timestamps != null) timestamps.contentToString() else ""}
                 ${if (timestamps != null && data != null) ".." else ""}
                 ${if (data != null) data.contentToString() else ""}

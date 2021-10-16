@@ -19,9 +19,9 @@ class Participant(val element: Element, val type: Type, val context: context) : 
 
     override fun toString(): String {
         return buildString {
-            appendLine("""${element.type} ${element.name} <<${type.name.lowercase()}>> #ForestGreen""".trimIndent())
+            appendLine("""${element.type} "${element.name}" <<${type.name.lowercase()}>> #ForestGreen""".trimIndent())
             associates.forEach {
-                appendLine("${element.name} $ASSOCIATE ${it.name}")
+                appendLine(""""${element.name}" $ASSOCIATE "${it.name}"""")
             }
         }
     }

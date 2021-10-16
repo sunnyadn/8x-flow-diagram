@@ -30,7 +30,7 @@ class fulfillment(val name: String, val context: context) : DSL<fulfillment>, As
 
     override fun toString(): String {
         return buildString {
-            appendLine("""${request.name} ${getAssociateLink(associateType)} ${confirmation.name}""")
+            appendLine(""""${request.name}" ${getAssociateLink(associateType)} "${confirmation.name}"""")
         }
     }
 }

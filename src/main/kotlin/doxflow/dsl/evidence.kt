@@ -35,7 +35,7 @@ class evidence(name: String, context: context) : Evidence<evidence>(name, contex
         return buildString {
             appendLine(super.toString())
             roles.forEach {
-                appendLine("""$name $PLAY_TO ${it.name}""")
+                appendLine(""""$name" $PLAY_TO "${it.name}"""")
             }
             detailAssociation?.let {
                 appendLine(it.first.toString())

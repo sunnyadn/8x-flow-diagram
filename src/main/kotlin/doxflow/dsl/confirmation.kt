@@ -23,7 +23,7 @@ class confirmation(name: String, context: context, generics: String?, note: Stri
             appendLine(super.toString())
             evidence?.let {
                 appendLine(evidence.toString())
-                appendLine("""${it.name} $ASSOCIATE $name""")
+                appendLine(""""${it.name}" $ASSOCIATE "$name"""")
             }
         }
     }

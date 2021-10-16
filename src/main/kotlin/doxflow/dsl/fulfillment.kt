@@ -17,11 +17,11 @@ class fulfillment(val name: String, val context: context) : DSL<fulfillment>, As
     }
 
     fun request(role: Role? = null, request: request.() -> Unit) {
-        this.request = request("${name}请求", context, generateGenerics(role)).apply { request() }
+        this.request = request("${name} Request", context, generateGenerics(role)).apply { request() }
     }
 
     fun confirmation(role: Role? = null, confirmation: confirmation.() -> Unit) {
-        this.confirmation = confirmation("${name}确认", context, generateGenerics(role)).apply { confirmation() }
+        this.confirmation = confirmation("${name} Confirmation", context, generateGenerics(role)).apply { confirmation() }
     }
 
     override fun associate(type: AssociationType) {

@@ -1,6 +1,8 @@
 package common
 
 import architecture.models.Element
+import net.sourceforge.plantuml.FileFormat
+import net.sourceforge.plantuml.FileFormatOption
 import net.sourceforge.plantuml.SourceStringReader
 import java.io.File
 import java.io.FileOutputStream
@@ -81,7 +83,12 @@ interface Diagram {
         )
 
         val file = File(filePath).apply { parentFile.mkdirs() }
-        with(SourceStringReader(plantumlStr).outputImage(FileOutputStream(file)).description != null) {
+        with(
+            SourceStringReader(plantumlStr).outputImage(
+                FileOutputStream(file),
+                FileFormatOption(FileFormat.SVG)
+            ).description != null
+        ) {
             return apply { exportResult(this) }
         }
     }
